@@ -4,6 +4,7 @@ import './index.less'
 import { createPublicKey } from 'crypto';
 import Child from './child';
 import Head from '../../components/head/head';
+import Food from '../../components/food/food';
 export default class Index extends Component {
 
   config = {
@@ -36,10 +37,8 @@ export default class Index extends Component {
   render () {
     return (
       <View className='index'>
-      {/* <Child name="张三" onchange={this.change.bind(this)}></Child>
-      <Button onClick={this.click}>改变名字</Button>
-        <Text>{this.state.name}</Text> */}
       <Head></Head>
+      <Food></Food>
       </View>
     )
   }
