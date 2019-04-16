@@ -26,7 +26,7 @@ class Cata extends Component{
          let {cata,selectCata}=this.state;
         return(<view className="cata">
        {cata.map((item,index)=>{
-           return (<Text onClick={this.clickHandle.bind(this)} className={"cata_name"+((selectCata&&selectCata.id==item.id))?"select":""} key={item.id}>{item.name}</Text>)
+           return (<Text onClick={this.clickHandle.bind(this,item)} className={"cata_name"+((selectCata&&selectCata.id==item.id))?"select":""} key={item.id}>{item.name}</Text>)
        })}
         </view>)
     }

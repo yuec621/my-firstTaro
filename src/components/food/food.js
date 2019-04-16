@@ -19,7 +19,8 @@ class Food extends Component {
     this.state = {
       current: 0,
       foodlist: [],
-      currentList: []
+      currentList: [],
+      selectCata:null
 
 
     };
@@ -31,6 +32,7 @@ class Food extends Component {
   }
   // 切换分类
   changeCata(selectCata) {
+    this.setState({selectCata:selectCata});
     if (this.state.foodlist.some(item => item.pid === selectCata.id)) {
       //不需要加载数据
       this.setState({
@@ -42,20 +44,25 @@ class Food extends Component {
         this.setState({
           foodlist: this.state.foodlist.concat(this.getData(selectCata))
         }, () => {
-
+          this.setState({
+            currentList: this.state.foodlist.filter(item => item.pid === selectCata.id)
+            })
         });
       }
     }
     getData(selectCata) {
       let count = Math.round(Math.random() * 2);
-      let imgUrl = `../../images/img/${count}.jpg`;
+      // let imgUrl = `../../images/img/${count}.jpg`;
       return Array.from(Array(Math.round(Math.random() * 20)), (v, k) => ({
-        img: imgUrl,
+       
+        price:Math.round(Math.random()*20),
+        sole:Math.round(Math.random()*50),
+        img: count,
         pid: selectCata.id,
         id: selectCata.id + "_" + k,
         title: "分类" + selectCata.id + "菜品" + (k + 1)
       }))
-      return []
+      
     }
     render() {
       const tabList = [{
@@ -72,7 +79,8 @@ class Food extends Component {
 
       let {
         current,
-        currentList
+        currentList,
+        selectCata
 
         // tabList
       } = this.state;
@@ -101,7 +109,10 @@ class Food extends Component {
         Cata onchangeCata = {
           this.changeCata.bind(this)
         } > < /Cata>  <
-        FoodList currentList = {
+        FoodList 
+        selectCata={selectCata}
+        currentList = {
+
           currentList
         } > < /FoodList> <
         /View> <
