@@ -10,7 +10,7 @@ class Top extends Component{
         <View className="right">
         <Image className="img" src={require("../../images/img/search.png")}/>
         <Image className="img" src={require("../../images/img/collect.png")}/>
-        <Image className="img" src={require("../../images/img/team.png")}/>
+        <Image className="img" src={require("../../images/img/team.png")}/>A
         <Image className="img" src={require("../../images/img/lue.png")}/>
         </View>
         </view>)

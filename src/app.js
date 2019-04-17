@@ -1,5 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import Index from './pages/index'
+//引入mock
 
 import './app.less'
 
